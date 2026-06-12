@@ -40,6 +40,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         self.resultados_cache={}
         self.cache_expiracion=1
         self.en_ejecucion=False
+        self.proceso=None
 
     def escribir_log(self,mensaje):
         ruta_log=os.path.join(globalVars.appArgs.configPath, "NVIDIAMonitor.log")
