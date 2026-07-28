@@ -41,7 +41,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.gpu.ejecutar_comando(comando, cb)
 
 	#For translators
-	@script(description=_(f"Anuncia el nombre de la GPU. {script_descripcion}"), gesture="kb:NVDA+alt+g",category=script_category)
+	@script(description=_("Anuncia el nombre de la GPU. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+g",category=script_category)
 	def script_nombre_grafica(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -52,7 +52,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia el UUID de la GPU. {script_descripcion}"), gesture="kb:NVDA+alt+u",category=script_category)
+	@script(description=_("Anuncia el UUID de la GPU. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+u",category=script_category)
 	def script_uuid_grafica(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -63,7 +63,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la versión del driver. {script_descripcion}"), gesture="kb:NVDA+alt+v",category=script_category)
+	@script(description=_("Anuncia la versión del driver. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+v",category=script_category)
 	def script_version_driver(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -74,7 +74,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la versión de la BIOS. {script_descripcion}"), gesture="kb:NVDA+alt+control+v",category=script_category)
+	@script(description=_("Anuncia la versión de la BIOS. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+v",category=script_category)
 	def script_version_bios(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -85,7 +85,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la carga de la GPU. {script_descripcion}"), gesture="kb:NVDA+alt+1",category=script_category)
+	@script(description=_("Anuncia la carga de la GPU. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+1",category=script_category)
 	def script_carga(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -96,7 +96,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la carga de la memoria. {script_descripcion}"), gesture="kb:NVDA+alt+2",category=script_category)
+	@script(description=_("Anuncia la carga de la memoria. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+2",category=script_category)
 	def script_carga_memoria(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -107,7 +107,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la memoria libre. {script_descripcion}"),gesture="kb:NVDA+alt+3",category=script_category)
+	@script(description=_("Anuncia la memoria libre. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+3",category=script_category)
 	def script_memoria_libre(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -120,7 +120,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	#For translators
-	@script(description=_(f"Anuncia la memoria utilizada. {script_descripcion}"),gesture="kb:NVDA+alt+4",category=script_category)
+	@script(description=_("Anuncia la memoria utilizada. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+4",category=script_category)
 	def script_memoria_usada(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -133,7 +133,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	#For translators
-	@script(description=_(f"Anuncia la memoria total. {script_descripcion}"),gesture="kb:NVDA+alt+5",category=script_category)
+	@script(description=_("Anuncia la memoria total. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+5",category=script_category)
 	def script_memoria_total(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -146,7 +146,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	#For translators
-	@script(description=_(f"Anuncia la temperatura. {script_descripcion}"),gesture="kb:NVDA+alt+6", category=script_category)
+	@script(description=_("Anuncia la temperatura. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+6", category=script_category)
 	def script_temperatura(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -159,7 +159,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	#For translators
-	@script(description=_(f"Anuncia el consumo de energía. {script_descripcion}"),gesture="kb:NVDA+alt+7", category=script_category)
+	@script(description=_("Anuncia el consumo de energía. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+7", category=script_category)
 	def script_consumo(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -170,7 +170,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia el límite de energía. {script_descripcion}"),gesture="kb:NVDA+alt+8", category=script_category)
+	@script(description=_("Anuncia el límite de energía. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+8", category=script_category)
 	def script_limite_energia(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -181,7 +181,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la cantidad de procesos cuda. {script_descripcion}"), gesture="kb:NVDA+alt+9", category=script_category)
+	@script(description=_("Anuncia la cantidad de procesos cuda. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+9", category=script_category)
 	def script_cudas(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -192,7 +192,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la memoria utilizada por procesos. {script_descripcion}"), gesture="kb:NVDA+alt+0", category=script_category)
+	@script(description=_("Anuncia la memoria utilizada por procesos. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+0", category=script_category)
 	def script_procesos_memoria(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -203,7 +203,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la velocidad del ventilador. {script_descripcion}"),gesture="kb:NVDA+alt+control+1", category=script_category)
+	@script(description=_("Anuncia la velocidad del ventilador. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+control+1", category=script_category)
 	def script_ventilador(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -214,7 +214,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia del reloj GPU. {script_descripcion}"), gesture="kb:NVDA+alt+control+2",category=script_category)
+	@script(description=_("Anuncia la frecuencia del reloj GPU. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+2",category=script_category)
 	def script_frecuencia(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -225,7 +225,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia máxima del reloj GPU. {script_descripcion}"), gesture="kb:NVDA+alt+control+3",category=script_category)
+	@script(description=_("Anuncia la frecuencia máxima del reloj GPU. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+3",category=script_category)
 	def script_frecuencia_max(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -236,7 +236,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia del reloj SM. {script_descripcion}"), gesture="kb:NVDA+alt+control+4",category=script_category)
+	@script(description=_("Anuncia la frecuencia del reloj SM. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+4",category=script_category)
 	def script_frecuencia_sm(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -247,7 +247,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia máxima del reloj SM. {script_descripcion}"), gesture="kb:NVDA+alt+control+5",category=script_category)
+	@script(description=_("Anuncia la frecuencia máxima del reloj SM. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+5",category=script_category)
 	def script_frecuencia_max_sm(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -258,7 +258,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia del reloj memoria. {script_descripcion}"), gesture="kb:NVDA+alt+control+6",category=script_category)
+	@script(description=_("Anuncia la frecuencia del reloj memoria. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+6",category=script_category)
 	def script_frecuencia_memoria(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -269,7 +269,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia la frecuencia máxima del reloj memoria. {script_descripcion}"), gesture="kb:NVDA+alt+control+7",category=script_category)
+	@script(description=_("Anuncia la frecuencia máxima del reloj memoria. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+7",category=script_category)
 	def script_frecuencia_max_memoria(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -280,7 +280,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia el TX Throughput. {script_descripcion}"), gesture="kb:NVDA+alt+control+8",category=script_category)
+	@script(description=_("Anuncia el TX Throughput. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+8",category=script_category)
 	def script_tx_throughput(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -291,7 +291,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia el RX Throughput. {script_descripcion}"), gesture="kb:NVDA+alt+control+9",category=script_category)
+	@script(description=_("Anuncia el RX Throughput. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+9",category=script_category)
 	def script_rx_throughput(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
@@ -302,7 +302,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
 	#For translators
-	@script(description=_(f"Anuncia el estado de energía. {script_descripcion}"), gesture="kb:NVDA+alt+control+0",category=script_category)
+	@script(description=_("Anuncia el estado de energía. {desc}").format(desc=script_descripcion), gesture="kb:NVDA+alt+control+0",category=script_category)
 	def script_estado_energia(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:

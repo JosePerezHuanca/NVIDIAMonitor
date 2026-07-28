@@ -26,19 +26,19 @@ class GPUMonitor:
 
 	def _formatear_memoria(self, bytes, tipo):
 		if bytes < 2**10:
-			return _(f"Memoria {tipo}: {bytes}B")
+			return _("Memoria {tipo}: {bytes}B").format(tipo=tipo, bytes=bytes)
 		elif bytes < 2**20:
-			return _(f"Memoria {tipo}: {bytes / (2**10):.2f}KB")
+			return _("Memoria {tipo}: {bytes:.2f}KB").format(tipo=tipo, bytes=bytes / (2**10))
 		elif bytes < 2**30:
-			return _(f"Memoria {tipo}: {bytes / (2**20):.2f}MB")
+			return _("Memoria {tipo}: {bytes:.2f}MB").format(tipo=tipo, bytes=bytes / (2**20))
 		else:
-			return _(f"Memoria {tipo}: {bytes / (2**30):.2f}GB")
+			return _("Memoria {tipo}: {bytes:.2f}GB").format(tipo=tipo, bytes=bytes / (2**30))
 
 	def _formatear_throughput(self, bytes, direccion):
 		if bytes < 2**20:
-			return _(f"{direccion} Throughput: {bytes / (2**10):.2f}KB/s")
+			return _("{direccion} Throughput: {bytes:.2f}KB/s").format(direccion=direccion, bytes=bytes / (2**10))
 		else:
-			return _(f"{direccion} Throughput: {bytes / (2**20):.2f}MB/s")
+			return _("{direccion} Throughput: {bytes:.2f}MB/s").format(direccion=direccion, bytes=bytes / (2**20))
 
 	def _obtener_descripcion_estado_energia(self, power_state):
 		descriptions = {
@@ -64,21 +64,21 @@ class GPUMonitor:
 	def formatear_resultado_script(self, comando, resultado):
 		resultado=resultado.strip()
 		if resultado.startswith("ERROR:"):
-			error_msg=_(f"Error al obtener información: {resultado[6:]}")
+			error_msg=_("Error al obtener información: {error}").format(error=resultado[6:])
 			self.escribir_log(error_msg)
 			return error_msg
 		elif resultado=="ERROR":
 			return _("Error al obtener información de la GPU")
 		if comando=="nombre":
-			return _(f"Nombre: {resultado}")
+			return _("Nombre: {res}").format(res=resultado)
 		elif comando=="uuid":
-			return _(f"UUID: {resultado}")
+			return _("UUID: {res}").format(res=resultado)
 		elif comando=="version_driver":
-			return _(f"Versión del driver: {resultado}")
+			return _("Versión del driver: {res}").format(res=resultado)
 		elif comando=="carga":
-			return _(f"Carga de la GPU: {resultado}%")
+			return _("Carga de la GPU: {res}%").format(res=resultado)
 		elif comando=="carga_memoria":
-			return _(f"Carga de la memoria: {resultado}%")
+			return _("Carga de la memoria: {res}%").format(res=resultado)
 		elif comando=="memoria_libre":
 			return self._formatear_memoria(int(resultado), "libre")
 		elif comando=="memoria_usada":
@@ -86,38 +86,38 @@ class GPUMonitor:
 		elif comando=="memoria_total":
 			return self._formatear_memoria(int(resultado), "total")
 		elif comando=="temperatura":
-			return _(f"Temperatura: {resultado} °C")
+			return _("Temperatura: {res} °C").format(res=resultado)
 		elif comando=="consumo_energia":
-			return _(f"Consumo: {resultado} W")
+			return _("Consumo: {res} W").format(res=resultado)
 		elif comando=="consumo_limite":
-			return _(f"Límite: {resultado} W")
+			return _("Límite: {res} W").format(res=resultado)
 		elif comando=="velocidad_ventilador":
-			return _(f"Velocidad del ventilador: {resultado}%")
+			return _("Velocidad del ventilador: {res}%").format(res=resultado)
 		elif comando=="procesos_cuda":
-			return _(f"Procesos cuda: {resultado}")
+			return _("Procesos cuda: {res}").format(res=resultado)
 		elif comando=="procesos_memoria":
 			return self._formatear_memoria(int(resultado), "utilizada por procesos")
 		elif comando=="frecuencia_reloj":
-			return _(f"Frecuencia reloj GPU: {resultado} MHz")
+			return _("Frecuencia reloj GPU: {res} MHz").format(res=resultado)
 		elif comando=="frecuencia_reloj_sm":
-			return _(f"Frecuencia reloj SM: {resultado} MHz")
+			return _("Frecuencia reloj SM: {res} MHz").format(res=resultado)
 		elif comando=="frecuencia_reloj_memoria":
-			return _(f"Frecuencia reloj memoria: {resultado} MHz")
+			return _("Frecuencia reloj memoria: {res} MHz").format(res=resultado)
 		elif comando=="frecuencia_max_reloj":
-			return _(f"Frecuencia máxima reloj GPU: {resultado} MHz")
+			return _("Frecuencia máxima reloj GPU: {res} MHz").format(res=resultado)
 		elif comando=="frecuencia_max_reloj_sm":
-			return _(f"Frecuencia máxima reloj SM: {resultado} MHz")
+			return _("Frecuencia máxima reloj SM: {res} MHz").format(res=resultado)
 		elif comando=="frecuencia_max_reloj_memoria":
-			return _(f"Frecuencia máxima reloj memoria: {resultado} MHz")
+			return _("Frecuencia máxima reloj memoria: {res} MHz").format(res=resultado)
 		elif comando=="tx_throughput":
 			return self._formatear_throughput(int(resultado), "TX")
 		elif comando=="rx_throughput":
 			return self._formatear_throughput(int(resultado), "RX")
 		elif comando=="version_bios":
-			return _(f"Versión de la BIOS: {resultado}")
+			return _("Versión de la BIOS: {res}").format(res=resultado)
 		elif comando=="estado_energia":
 			power_state=int(resultado)
-			return _(f"Estado de energía: {self._obtener_descripcion_estado_energia(power_state)}")
+			return _("Estado de energía: {desc}").format(desc=self._obtener_descripcion_estado_energia(power_state))
 		else:
 			return _("Tipo de información no válido")
 
@@ -142,14 +142,14 @@ class GPUMonitor:
 			return self.proceso
 		except FileNotFoundError as e:
 			self.en_ejecucion=False
-			error_ruta=_(f"Error: El archivo no se encuentra en la ruta especificada: {self.ruta}")
+			error_ruta=_("Error: El archivo no se encuentra en la ruta especificada: {ruta}").format(ruta=self.ruta)
 			self.escribir_log(error_ruta)
 			log.error(error_ruta)
 			self.proceso=None
 			return self.proceso
 		except subprocess.CalledProcessError as e:
 			self.en_ejecucion=False
-			error_mensaje=_(f"Error al iniciar el proceso: {e.returncode} {e.cmd}")
+			error_mensaje=_("Error al iniciar el proceso: {code} {cmd}").format(code=e.returncode, cmd=e.cmd)
 			self.escribir_log(error_mensaje)
 			log.error(error_mensaje)
 			self.proceso=None
@@ -180,7 +180,7 @@ class GPUMonitor:
 					self.resultados_cache[comando] = resultado_formateado, tiempo_actual
 					return cb(resultado_formateado)
 				except OSError as e:
-					error_proceso=_(f"Error al escribir en el subprocess: {e}")
+					error_proceso=_("Error al escribir en el subprocess: {error}").format(error=e)
 					self.escribir_log(error_proceso)
 					log.error(error_proceso)
 					return cb("Error al escribir en el proceso.")
@@ -191,7 +191,7 @@ class GPUMonitor:
 				resultado=self.ejecutar_pynvml(comando)
 				cb(resultado)
 			except Exception as e:
-				error_msg = _(f"Error al ejecutar comando con pynvml: {e}")
+				error_msg = _("Error al ejecutar comando con pynvml: {error}").format(error=e)
 				log.error(error_msg)
 				self.escribir_log(error_msg)
 				cb("Error al obtener información de la GPU")
@@ -202,23 +202,23 @@ class GPUMonitor:
 			pynvml.nvmlInit()
 			handle = pynvml.nvmlDeviceGetHandleByIndex(0)
 		except Exception as e:
-			log.error(_(f"Error iniciando pynvml: {e}"))
+			log.error(_("Error iniciando pynvml: {error}").format(error=e))
 			return "Error al inicializar pynvml"
 		try:
 			if info_type == "nombre":
 				gpu_name = pynvml.nvmlDeviceGetName(handle)
 				full_name = gpu_name.strip()
-				return _(f"Nombre: {full_name}")
+				return _("Nombre: {name}").format(name=full_name)
 			elif info_type=="uuid":
-				return _(f"UUID: {pynvml.nvmlDeviceGetUUID(handle)}")
+				return _("UUID: {uuid}").format(uuid=pynvml.nvmlDeviceGetUUID(handle))
 			elif info_type=="version_driver":
-				return _(f"Versión del driver: {pynvml.nvmlSystemGetDriverVersion()}")
+				return _("Versión del driver: {ver}").format(ver=pynvml.nvmlSystemGetDriverVersion())
 			elif info_type == "carga":
 				utilization = pynvml.nvmlDeviceGetUtilizationRates(handle)
-				return _(f"Carga de la GPU: {utilization.gpu}%")
+				return _("Carga de la GPU: {load}%").format(load=utilization.gpu)
 			elif info_type=="carga_memoria":
 				utilization_memory=pynvml.nvmlDeviceGetUtilizationRates(handle)
-				return _(f"Carga de la memoria: {utilization_memory.memory}%")
+				return _("Carga de la memoria: {load}%").format(load=utilization_memory.memory)
 			elif info_type == "memoria_libre":
 				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
 				return self._formatear_memoria(memory_info.free, "libre")
@@ -232,19 +232,19 @@ class GPUMonitor:
 				temperature = pynvml.nvmlDeviceGetTemperature(
 					handle, pynvml.NVML_TEMPERATURE_GPU
 				)
-				return _(f"Temperatura: {temperature} °C")
+				return _("Temperatura: {temp} °C").format(temp=temperature)
 			elif info_type == "consumo_energia":
 				power_usage = pynvml.nvmlDeviceGetPowerUsage(handle) / 1000.0
-				return _(f"Consumo: {power_usage:.2f} W")
+				return _("Consumo: {power:.2f} W").format(power=power_usage)
 			elif info_type=="consumo_limite":
 				power_limit=pynvml.nvmlDeviceGetPowerManagementLimit(handle) / 1000.0
-				return _(f"Límite: {power_limit:.2f} W")
+				return _("Límite: {limit:.2f} W").format(limit=power_limit)
 			elif info_type == "velocidad_ventilador":
 				fan_speed = pynvml.nvmlDeviceGetFanSpeed(handle)
-				return _(f"Velocidad del ventilador: {fan_speed}%")
+				return _("Velocidad del ventilador: {speed}%").format(speed=fan_speed)
 			elif info_type == "procesos_cuda":
 				cuda_processes = pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
-				return _(f"Procesos cuda: {len(cuda_processes)}")
+				return _("Procesos cuda: {count}").format(count=len(cuda_processes))
 			elif info_type=="procesos_memoria":
 				processes=pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
 				total_process_memory = 0
@@ -254,22 +254,22 @@ class GPUMonitor:
 				return self._formatear_memoria(total_process_memory, "utilizada por procesos")
 			elif info_type == "frecuencia_reloj":
 				clock_graphics_current = pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_GRAPHICS)
-				return _(f"Frecuencia reloj GPU: {clock_graphics_current} MHz")
+				return _("Frecuencia reloj GPU: {clock} MHz").format(clock=clock_graphics_current)
 			elif info_type=="frecuencia_reloj_sm":
 				clock_SM=pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_SM)
-				return _(f"Frecuencia reloj SM: {clock_SM} MHz")
+				return _("Frecuencia reloj SM: {clock} MHz").format(clock=clock_SM)
 			elif info_type=="frecuencia_reloj_memoria":
 				clock_memory=pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_MEM)
-				return _(f"Frecuencia reloj memoria: {clock_memory} MHz")
+				return _("Frecuencia reloj memoria: {clock} MHz").format(clock=clock_memory)
 			elif info_type=="frecuencia_max_reloj":
 				clock_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_GRAPHICS)
-				return _(f"Frecuencia máxima reloj GPU: {clock_max} MHz")
+				return _("Frecuencia máxima reloj GPU: {clock} MHz").format(clock=clock_max)
 			elif info_type=="frecuencia_max_reloj_sm":
 				clock_sm_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_SM)
-				return _(f"Frecuencia máxima reloj SM: {clock_sm_max} MHz")
+				return _("Frecuencia máxima reloj SM: {clock} MHz").format(clock=clock_sm_max)
 			elif info_type=="frecuencia_max_reloj_memoria":
 				clock_memory_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_MEM)
-				return _(f"Frecuencia máxima reloj memoria: {clock_memory_max} MHz")
+				return _("Frecuencia máxima reloj memoria: {clock} MHz").format(clock=clock_memory_max)
 			elif info_type=="tx_throughput":
 				tx=pynvml.nvmlDeviceGetPcieThroughput(handle, pynvml.NVML_PCIE_UTIL_TX_BYTES)
 				return self._formatear_throughput(tx, "TX")
@@ -278,17 +278,17 @@ class GPUMonitor:
 				return self._formatear_throughput(rx, "RX")
 			elif info_type=="version_bios":
 				bios_version=pynvml.nvmlDeviceGetVbiosVersion(handle)
-				return _(f"Versión de la BIOS: {bios_version}")
+				return _("Versión de la BIOS: {ver}").format(ver=bios_version)
 			elif info_type=="estado_energia":
 				power_state=pynvml.nvmlDeviceGetPowerState(handle)
-				return _(f"Estado de energía: {self._obtener_descripcion_estado_energia(power_state)}")
+				return _("Estado de energía: {desc}").format(desc=self._obtener_descripcion_estado_energia(power_state))
 			else:
 				return _("Tipo de información no válido")
 		finally:
 			try:
 				pynvml.nvmlShutdown()
 			except Exception as e:
-				log.error(_(f"Error al cerrar pynvml: {e}"))
+				log.error(_("Error al cerrar pynvml: {error}").format(error=e))
 				pass
 
 	def terminate(self):
@@ -311,6 +311,6 @@ class GPUMonitor:
 					self.proceso.stderr.close()
 					self.en_ejecucion=False
 				except Exception as e:
-					error_terminate=_(f"Error al intentar terminar el proceso: {str(e)}")
+					error_terminate=_("Error al intentar terminar el proceso: {error}").format(error=str(e))
 					self.escribir_log(error_terminate)
 					pass
