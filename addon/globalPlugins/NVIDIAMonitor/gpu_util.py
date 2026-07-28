@@ -24,6 +24,103 @@ class GPUMonitor:
 		else:
 			log.info(_("NVIDIAMonitor: NVDA versión menor a 2026.1, utilizando script externo"))
 
+	def _formatear_memoria(self, bytes, tipo):
+		if bytes < 2**10:
+			return _(f"Memoria {tipo}: {bytes}B")
+		elif bytes < 2**20:
+			return _(f"Memoria {tipo}: {bytes / (2**10):.2f}KB")
+		elif bytes < 2**30:
+			return _(f"Memoria {tipo}: {bytes / (2**20):.2f}MB")
+		else:
+			return _(f"Memoria {tipo}: {bytes / (2**30):.2f}GB")
+
+	def _formatear_throughput(self, bytes, direccion):
+		if bytes < 2**20:
+			return _(f"{direccion} Throughput: {bytes / (2**10):.2f}KB/s")
+		else:
+			return _(f"{direccion} Throughput: {bytes / (2**20):.2f}MB/s")
+
+	def _obtener_descripcion_estado_energia(self, power_state):
+		descriptions = {
+			0: _("P0 - Máximo rendimiento"),
+			1: _("P1 - Rendimiento muy alto"),
+			2: _("P2 - Rendimiento alto"),
+			3: _("P3 - Rendimiento moderado-alto"),
+			4: _("P4 - Rendimiento moderado"),
+			5: _("P5 - Bajo rendimiento"),
+			6: _("P6 - Modo ahorro de energía"),
+			7: _("P7 - Modo ahorro (intermedio)"),
+			8: _("P8 - Estado de inactividad / muy bajo rendimiento"),
+			9: _("P9 - (No documentado)"),
+			10: _("P10 - (No documentado)"),
+			11: _("P11 - (No documentado)"),
+			12: _("P12 - (No documentado)"),
+			13: _("P13 - (No documentado)"),
+			14: _("P14 - (No documentado)"),
+			15: _("P15 - Mínimo rendimiento / máximo ahorro"),
+		}
+		return descriptions.get(power_state, 'Desconocido')
+
+	def formatear_resultado_script(self, comando, resultado):
+		resultado=resultado.strip()
+		if resultado.startswith("ERROR:"):
+			error_msg=_(f"Error al obtener información: {resultado[6:]}")
+			self.escribir_log(error_msg)
+			return error_msg
+		elif resultado=="ERROR":
+			return _("Error al obtener información de la GPU")
+		if comando=="nombre":
+			return _(f"Nombre: {resultado}")
+		elif comando=="uuid":
+			return _(f"UUID: {resultado}")
+		elif comando=="version_driver":
+			return _(f"Versión del driver: {resultado}")
+		elif comando=="carga":
+			return _(f"Carga de la GPU: {resultado}%")
+		elif comando=="carga_memoria":
+			return _(f"Carga de la memoria: {resultado}%")
+		elif comando=="memoria_libre":
+			return self._formatear_memoria(int(resultado), "libre")
+		elif comando=="memoria_usada":
+			return self._formatear_memoria(int(resultado), "utilizada")
+		elif comando=="memoria_total":
+			return self._formatear_memoria(int(resultado), "total")
+		elif comando=="temperatura":
+			return _(f"Temperatura: {resultado} °C")
+		elif comando=="consumo_energia":
+			return _(f"Consumo: {resultado} W")
+		elif comando=="consumo_limite":
+			return _(f"Límite: {resultado} W")
+		elif comando=="velocidad_ventilador":
+			return _(f"Velocidad del ventilador: {resultado}%")
+		elif comando=="procesos_cuda":
+			return _(f"Procesos cuda: {resultado}")
+		elif comando=="procesos_memoria":
+			return self._formatear_memoria(int(resultado), "utilizada por procesos")
+		elif comando=="frecuencia_reloj":
+			return _(f"Frecuencia reloj GPU: {resultado} MHz")
+		elif comando=="frecuencia_reloj_sm":
+			return _(f"Frecuencia reloj SM: {resultado} MHz")
+		elif comando=="frecuencia_reloj_memoria":
+			return _(f"Frecuencia reloj memoria: {resultado} MHz")
+		elif comando=="frecuencia_max_reloj":
+			return _(f"Frecuencia máxima reloj GPU: {resultado} MHz")
+		elif comando=="frecuencia_max_reloj_sm":
+			return _(f"Frecuencia máxima reloj SM: {resultado} MHz")
+		elif comando=="frecuencia_max_reloj_memoria":
+			return _(f"Frecuencia máxima reloj memoria: {resultado} MHz")
+		elif comando=="tx_throughput":
+			return self._formatear_throughput(int(resultado), "TX")
+		elif comando=="rx_throughput":
+			return self._formatear_throughput(int(resultado), "RX")
+		elif comando=="version_bios":
+			return _(f"Versión de la BIOS: {resultado}")
+		elif comando=="estado_energia":
+			power_state=int(resultado)
+			return _(f"Estado de energía: {self._obtener_descripcion_estado_energia(power_state)}")
+		else:
+			return _("Tipo de información no válido")
+
 	def escribir_log(self,mensaje):
 		ruta_log=os.path.join(globalVars.appArgs.configPath, "NVIDIAMonitor.log")
 		with open(ruta_log, "a") as f:
@@ -77,9 +174,11 @@ class GPUMonitor:
 						self.escribir_log(error_resultado)
 						log.error(error_resultado)
 						return cb("Error al recibir respuesta del proceso.")
+					#Formatear el resultado crudo del script
+					resultado_formateado=self.formatear_resultado_script(comando, resultado)
 					#Guardar el resultado en la caché
-					self.resultados_cache[comando] = resultado, tiempo_actual
-					return cb(resultado)
+					self.resultados_cache[comando] = resultado_formateado, tiempo_actual
+					return cb(resultado_formateado)
 				except OSError as e:
 					error_proceso=_(f"Error al escribir en el subprocess: {e}")
 					self.escribir_log(error_proceso)
@@ -122,37 +221,13 @@ class GPUMonitor:
 				return _(f"Carga de la memoria: {utilization_memory.memory}%")
 			elif info_type == "memoria_libre":
 				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
-				free_memory=memory_info.free
-				if free_memory < 2**10:
-					return _(f"Memoria libre: {free_memory}B")
-				elif free_memory < 2**20:
-					return _(f"Memoria libre: {free_memory / (2**10):.2f}KB")
-				elif free_memory < 2**30:
-					return _(f"Memoria libre: {free_memory / (2**20):.2f}MB")
-				else:
-					return _(f"Memoria libre: {free_memory / (2**30):.2f}GB")
+				return self._formatear_memoria(memory_info.free, "libre")
 			elif info_type == "memoria_usada":
 				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
-				used_memory=memory_info.used
-				if used_memory < 2**10:
-					return _(f"Memoria utilizada: {used_memory}B")
-				elif used_memory < 2**20:
-					return _(f"Memoria utilizada: {used_memory / (2**10):.2f}KB")
-				elif used_memory < 2**30:
-					return _(f"Memoria utilizada: {used_memory / (2**20):.2f}MB")
-				else:
-					return _(f"Memoria utilizada: {used_memory / (2**30):.2f}GB")
+				return self._formatear_memoria(memory_info.used, "utilizada")
 			elif info_type == "memoria_total":
 				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
-				total_memory=memory_info.total
-				if total_memory < 2**10:
-					return _(f"Memoria total: {total_memory}B")
-				elif total_memory < 2**20:
-					return _(f"Memoria total: {total_memory / (2**10):.2f}KB")
-				elif total_memory < 2**30:
-					return _(f"Memoria total: {total_memory / (2**20):.2f}MB")
-				else:
-					return _(f"Memoria total: {total_memory / (2**30):.2f}GB")
+				return self._formatear_memoria(memory_info.total, "total")
 			elif info_type == "temperatura":
 				temperature = pynvml.nvmlDeviceGetTemperature(
 					handle, pynvml.NVML_TEMPERATURE_GPU
@@ -176,14 +251,7 @@ class GPUMonitor:
 				for proc in processes:
 					if proc.usedGpuMemory is not None:
 						total_process_memory += proc.usedGpuMemory
-				if total_process_memory < 2**10:
-					return _(f"Memoria utilizada por procesos: {total_process_memory}B")
-				elif total_process_memory < 2**20:
-					return _(f"Memoria utilizada por procesos: {total_process_memory / (2**10):.2f}KB")
-				elif total_process_memory < 2**30:
-					return _(f"Memoria utilizada por procesos: {total_process_memory / (2**20):.2f}MB")
-				else:
-					return _(f"Memoria utilizada por procesos: {total_process_memory / (2**30):.2f}GB")
+				return self._formatear_memoria(total_process_memory, "utilizada por procesos")
 			elif info_type == "frecuencia_reloj":
 				clock_graphics_current = pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_GRAPHICS)
 				return _(f"Frecuencia reloj GPU: {clock_graphics_current} MHz")
@@ -204,41 +272,16 @@ class GPUMonitor:
 				return _(f"Frecuencia máxima reloj memoria: {clock_memory_max} MHz")
 			elif info_type=="tx_throughput":
 				tx=pynvml.nvmlDeviceGetPcieThroughput(handle, pynvml.NVML_PCIE_UTIL_TX_BYTES)
-				if tx < 2**20:
-					return _(f"TX Throughput: {tx / (2**10):.2f}KB/s")
-				else:
-					return _(f"TX Throughput: {tx / (2**20):.2f}MB/s")
+				return self._formatear_throughput(tx, "TX")
 			elif info_type=="rx_throughput":
 				rx=pynvml.nvmlDeviceGetPcieThroughput(handle, pynvml.NVML_PCIE_UTIL_RX_BYTES)
-				if rx < 2**20:
-					return _(f"RX Throughput: {rx / (2**10):.2f}KB/s")
-				else:
-					return _(f"RX Throughput: {rx / (2**20):.2f}MB/s")
+				return self._formatear_throughput(rx, "RX")
 			elif info_type=="version_bios":
 				bios_version=pynvml.nvmlDeviceGetVbiosVersion(handle)
 				return _(f"Versión de la BIOS: {bios_version}")
 			elif info_type=="estado_energia":
 				power_state=pynvml.nvmlDeviceGetPowerState(handle)
-				# Este mapeo es aproximado y puede necesitar ajustes según el modelo de GPU.
-				descriptions = {
-					0: _("P0 - Máximo rendimiento"),
-					1: _("P1 - Rendimiento muy alto"),
-					2: _("P2 - Rendimiento alto"),
-					3: _("P3 - Rendimiento moderado-alto"),
-					4: _("P4 - Rendimiento moderado"),
-					5: _("P5 - Bajo rendimiento"),
-					6: _("P6 - Modo ahorro de energía"),
-					7: _("P7 - Modo ahorro (intermedio)"),
-					8: _("P8 - Estado de inactividad / muy bajo rendimiento"),
-					9: _("P9 - (No documentado)"),
-					10: _("P10 - (No documentado)"),
-					11: _("P11 - (No documentado)"),
-					12: _("P12 - (No documentado)"),
-					13: _("P13 - (No documentado)"),
-					14: _("P14 - (No documentado)"),
-					15: _("P15 - Mínimo rendimiento / máximo ahorro"),
-				}
-				return _(f"Estado de energía: {descriptions.get(power_state, 'Desconocido')}")
+				return _(f"Estado de energía: {self._obtener_descripcion_estado_energia(power_state)}")
 			else:
 				return _("Tipo de información no válido")
 		finally:
