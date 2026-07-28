@@ -7,6 +7,9 @@ from . import pynvml
 import versionInfo
 from logHandler import log
 import globalVars
+import addonHandler
+
+addonHandler.initTranslation()
 
 
 build_year=getattr(versionInfo,'version_year', 2026)
@@ -25,14 +28,21 @@ class GPUMonitor:
 			log.info(_("NVIDIAMonitor: NVDA versión menor a 2026.1, utilizando script externo"))
 
 	def _formatear_memoria(self, bytes, tipo):
+		tipo_labels = {
+			"libre": _("Memoria libre"),
+			"utilizada": _("Memoria utilizada"),
+			"total": _("Memoria total"),
+			"utilizada por procesos": _("Memoria utilizada por procesos"),
+		}
+		label = tipo_labels.get(tipo, tipo)
 		if bytes < 2**10:
-			return _("Memoria {tipo}: {bytes}B").format(tipo=tipo, bytes=bytes)
+			return _("{label}: {bytes}B").format(label=label, bytes=bytes)
 		elif bytes < 2**20:
-			return _("Memoria {tipo}: {bytes:.2f}KB").format(tipo=tipo, bytes=bytes / (2**10))
+			return _("{label}: {bytes:.2f}KB").format(label=label, bytes=bytes / (2**10))
 		elif bytes < 2**30:
-			return _("Memoria {tipo}: {bytes:.2f}MB").format(tipo=tipo, bytes=bytes / (2**20))
+			return _("{label}: {bytes:.2f}MB").format(label=label, bytes=bytes / (2**20))
 		else:
-			return _("Memoria {tipo}: {bytes:.2f}GB").format(tipo=tipo, bytes=bytes / (2**30))
+			return _("{label}: {bytes:.2f}GB").format(label=label, bytes=bytes / (2**30))
 
 	def _formatear_throughput(self, bytes, direccion):
 		if bytes < 2**20:
