@@ -117,8 +117,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
-
-
 	#For translators
 	@script(description=_("Anuncia la memoria utilizada. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+4",category=script_category)
 	def script_memoria_usada(self,gesture):
@@ -129,8 +127,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self.ejecutar_comando("memoria_usada",lambda resultado: api.copyToClip(resultado,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
-
-
 
 	#For translators
 	@script(description=_("Anuncia la memoria total. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+5",category=script_category)
@@ -143,8 +139,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
-
-
 	#For translators
 	@script(description=_("Anuncia la temperatura. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+6", category=script_category)
 	def script_temperatura(self,gesture):
@@ -155,8 +149,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self.ejecutar_comando("temperatura",lambda resultado: api.copyToClip(resultado,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
-
-
 
 	#For translators
 	@script(description=_("Anuncia el consumo de energía. {desc}").format(desc=script_descripcion),gesture="kb:NVDA+alt+7", category=script_category)

@@ -9,8 +9,11 @@ from logHandler import log
 import globalVars
 import addonHandler
 
-addonHandler.initTranslation()
-
+#For translators
+try:
+	addonHandler.initTranslation()
+except addonHandler.AddonError:
+	log.warning("Unable to initialise translations. This may be because the addon is running from NVDA scratchpad.")
 
 build_year=getattr(versionInfo,'version_year', 2026)
 
