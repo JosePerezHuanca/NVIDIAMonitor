@@ -3,7 +3,6 @@ import subprocess
 import threading
 import time
 import datetime
-from . import pynvml
 import versionInfo
 from logHandler import log
 import globalVars
@@ -25,9 +24,12 @@ class GPUMonitor:
 		self.cache_expiracion=1
 		self.use_legacy_script=True
 		if build_year >= 2026:
+			from . import pynvml as _pynvml
+			self.pynvml = _pynvml
 			log.info(_("NVIDIAMonitor: NVDA 64 bits, utilizando pynvml"))
 			self.use_legacy_script=False
 		else:
+			self.pynvml = None
 			log.info(_("NVIDIAMonitor: NVDA versión menor a 2026.1, utilizando script externo"))
 
 	def _formatear_memoria(self, bytes, tipo):
@@ -212,94 +214,94 @@ class GPUMonitor:
 
 	def ejecutar_pynvml(self, info_type):
 		try:
-			pynvml.nvmlInit()
-			handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+			self.self.pynvml.nvmlInit()
+			handle = self.self.pynvml.nvmlDeviceGetHandleByIndex(0)
 		except Exception as e:
 			log.error(_("Error iniciando pynvml: {error}").format(error=e))
 			return "Error al inicializar pynvml"
 		try:
 			if info_type == "nombre":
-				gpu_name = pynvml.nvmlDeviceGetName(handle)
+				gpu_name = self.pynvml.nvmlDeviceGetName(handle)
 				full_name = gpu_name.strip()
 				return _("Nombre: {name}").format(name=full_name)
 			elif info_type=="uuid":
-				return _("UUID: {uuid}").format(uuid=pynvml.nvmlDeviceGetUUID(handle))
+				return _("UUID: {uuid}").format(uuid=self.pynvml.nvmlDeviceGetUUID(handle))
 			elif info_type=="version_driver":
-				return _("Versión del driver: {ver}").format(ver=pynvml.nvmlSystemGetDriverVersion())
+				return _("Versión del driver: {ver}").format(ver=self.pynvml.nvmlSystemGetDriverVersion())
 			elif info_type == "carga":
-				utilization = pynvml.nvmlDeviceGetUtilizationRates(handle)
+				utilization = self.pynvml.nvmlDeviceGetUtilizationRates(handle)
 				return _("Carga de la GPU: {load}%").format(load=utilization.gpu)
 			elif info_type=="carga_memoria":
-				utilization_memory=pynvml.nvmlDeviceGetUtilizationRates(handle)
+				utilization_memory=self.pynvml.nvmlDeviceGetUtilizationRates(handle)
 				return _("Carga de la memoria: {load}%").format(load=utilization_memory.memory)
 			elif info_type == "memoria_libre":
-				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+				memory_info = self.pynvml.nvmlDeviceGetMemoryInfo(handle)
 				return self._formatear_memoria(memory_info.free, "libre")
 			elif info_type == "memoria_usada":
-				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+				memory_info = self.pynvml.nvmlDeviceGetMemoryInfo(handle)
 				return self._formatear_memoria(memory_info.used, "utilizada")
 			elif info_type == "memoria_total":
-				memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+				memory_info = self.pynvml.nvmlDeviceGetMemoryInfo(handle)
 				return self._formatear_memoria(memory_info.total, "total")
 			elif info_type == "temperatura":
-				temperature = pynvml.nvmlDeviceGetTemperature(
-					handle, pynvml.NVML_TEMPERATURE_GPU
+				temperature = self.pynvml.nvmlDeviceGetTemperature(
+					handle, self.pynvml.NVML_TEMPERATURE_GPU
 				)
 				return _("Temperatura: {temp} °C").format(temp=temperature)
 			elif info_type == "consumo_energia":
-				power_usage = pynvml.nvmlDeviceGetPowerUsage(handle) / 1000.0
+				power_usage = self.pynvml.nvmlDeviceGetPowerUsage(handle) / 1000.0
 				return _("Consumo: {power:.2f} W").format(power=power_usage)
 			elif info_type=="consumo_limite":
-				power_limit=pynvml.nvmlDeviceGetPowerManagementLimit(handle) / 1000.0
+				power_limit=self.pynvml.nvmlDeviceGetPowerManagementLimit(handle) / 1000.0
 				return _("Límite: {limit:.2f} W").format(limit=power_limit)
 			elif info_type == "velocidad_ventilador":
-				fan_speed = pynvml.nvmlDeviceGetFanSpeed(handle)
+				fan_speed = self.pynvml.nvmlDeviceGetFanSpeed(handle)
 				return _("Velocidad del ventilador: {speed}%").format(speed=fan_speed)
 			elif info_type == "procesos_cuda":
-				cuda_processes = pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
+				cuda_processes = self.pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
 				return _("Procesos cuda: {count}").format(count=len(cuda_processes))
 			elif info_type=="procesos_memoria":
-				processes=pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
+				processes=self.pynvml.nvmlDeviceGetComputeRunningProcesses(handle)
 				total_process_memory = 0
 				for proc in processes:
 					if proc.usedGpuMemory is not None:
 						total_process_memory += proc.usedGpuMemory
 				return self._formatear_memoria(total_process_memory, "utilizada por procesos")
 			elif info_type == "frecuencia_reloj":
-				clock_graphics_current = pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_GRAPHICS)
+				clock_graphics_current = self.pynvml.nvmlDeviceGetClockInfo(handle, self.pynvml.NVML_CLOCK_GRAPHICS)
 				return _("Frecuencia reloj GPU: {clock} MHz").format(clock=clock_graphics_current)
 			elif info_type=="frecuencia_reloj_sm":
-				clock_SM=pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_SM)
+				clock_SM=self.pynvml.nvmlDeviceGetClockInfo(handle, self.pynvml.NVML_CLOCK_SM)
 				return _("Frecuencia reloj SM: {clock} MHz").format(clock=clock_SM)
 			elif info_type=="frecuencia_reloj_memoria":
-				clock_memory=pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_MEM)
+				clock_memory=self.pynvml.nvmlDeviceGetClockInfo(handle, self.pynvml.NVML_CLOCK_MEM)
 				return _("Frecuencia reloj memoria: {clock} MHz").format(clock=clock_memory)
 			elif info_type=="frecuencia_max_reloj":
-				clock_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_GRAPHICS)
+				clock_max=self.pynvml.nvmlDeviceGetMaxClockInfo(handle, self.pynvml.NVML_CLOCK_GRAPHICS)
 				return _("Frecuencia máxima reloj GPU: {clock} MHz").format(clock=clock_max)
 			elif info_type=="frecuencia_max_reloj_sm":
-				clock_sm_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_SM)
+				clock_sm_max=self.pynvml.nvmlDeviceGetMaxClockInfo(handle, self.pynvml.NVML_CLOCK_SM)
 				return _("Frecuencia máxima reloj SM: {clock} MHz").format(clock=clock_sm_max)
 			elif info_type=="frecuencia_max_reloj_memoria":
-				clock_memory_max=pynvml.nvmlDeviceGetMaxClockInfo(handle, pynvml.NVML_CLOCK_MEM)
+				clock_memory_max=self.pynvml.nvmlDeviceGetMaxClockInfo(handle, self.pynvml.NVML_CLOCK_MEM)
 				return _("Frecuencia máxima reloj memoria: {clock} MHz").format(clock=clock_memory_max)
 			elif info_type=="tx_throughput":
-				tx=pynvml.nvmlDeviceGetPcieThroughput(handle, pynvml.NVML_PCIE_UTIL_TX_BYTES)
+				tx=self.pynvml.nvmlDeviceGetPcieThroughput(handle, self.pynvml.NVML_PCIE_UTIL_TX_BYTES)
 				return self._formatear_throughput(tx, "TX")
 			elif info_type=="rx_throughput":
-				rx=pynvml.nvmlDeviceGetPcieThroughput(handle, pynvml.NVML_PCIE_UTIL_RX_BYTES)
+				rx=self.pynvml.nvmlDeviceGetPcieThroughput(handle, self.pynvml.NVML_PCIE_UTIL_RX_BYTES)
 				return self._formatear_throughput(rx, "RX")
 			elif info_type=="version_bios":
-				bios_version=pynvml.nvmlDeviceGetVbiosVersion(handle)
+				bios_version=self.pynvml.nvmlDeviceGetVbiosVersion(handle)
 				return _("Versión de la BIOS: {ver}").format(ver=bios_version)
 			elif info_type=="estado_energia":
-				power_state=pynvml.nvmlDeviceGetPowerState(handle)
+				power_state=self.pynvml.nvmlDeviceGetPowerState(handle)
 				return _("Estado de energía: {desc}").format(desc=self._obtener_descripcion_estado_energia(power_state))
 			else:
 				return _("Tipo de información no válido")
 		finally:
 			try:
-				pynvml.nvmlShutdown()
+				self.pynvml.nvmlShutdown()
 			except Exception as e:
 				log.error(_("Error al cerrar pynvml: {error}").format(error=e))
 				pass
