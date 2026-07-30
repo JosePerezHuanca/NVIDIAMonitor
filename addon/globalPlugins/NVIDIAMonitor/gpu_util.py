@@ -39,19 +39,19 @@ class GPUMonitor:
 		}
 		label = tipo_labels.get(tipo, tipo)
 		if bytes < 2**10:
-			return _("{label}: {bytes}B").format(label=label, bytes=bytes)
+			return _("{label}: {bytes} B").format(label=label, bytes=bytes)
 		elif bytes < 2**20:
-			return _("{label}: {bytes:.2f}KB").format(label=label, bytes=bytes / (2**10))
+			return _("{label}: {bytes:.2f} KB").format(label=label, bytes=bytes / (2**10))
 		elif bytes < 2**30:
-			return _("{label}: {bytes:.2f}MB").format(label=label, bytes=bytes / (2**20))
+			return _("{label}: {bytes:.2f} MB").format(label=label, bytes=bytes / (2**20))
 		else:
-			return _("{label}: {bytes:.2f}GB").format(label=label, bytes=bytes / (2**30))
+			return _("{label}: {bytes:.2f} GB").format(label=label, bytes=bytes / (2**30))
 
 	def _formatear_throughput(self, bytes, direccion):
 		if bytes < 2**20:
-			return _("{direccion} Throughput: {bytes:.2f}KB/s").format(direccion=direccion, bytes=bytes / (2**10))
+			return _("{direccion} Throughput: {bytes:.2f} KB/s").format(direccion=direccion, bytes=bytes / (2**10))
 		else:
-			return _("{direccion} Throughput: {bytes:.2f}MB/s").format(direccion=direccion, bytes=bytes / (2**20))
+			return _("{direccion} Throughput: {bytes:.2f} MB/s").format(direccion=direccion, bytes=bytes / (2**20))
 
 	def _obtener_descripcion_estado_energia(self, power_state):
 		descriptions = {

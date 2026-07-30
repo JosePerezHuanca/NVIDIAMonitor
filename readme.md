@@ -35,6 +35,12 @@ Todos los siguientes atajos se pueden personalizar en los gestos de entrada/cate
 
 ## Registro de cambios
 
+### Versión 2.0
+
+- Compatibilidad con NVDA 2026.1.
+- A partir de esta versión, el complemento realiza llamadas directamente a la librería pynvml en lugar de utilizar una herramienta externa, siempre que se ejecute en la última versión de NVDA.
+- Traducción al inglés.
+
 ### Versión 1.0
 
 - Se realizaron varios cambios, correcciones y mejoras en el script donde se obtiene la información.
