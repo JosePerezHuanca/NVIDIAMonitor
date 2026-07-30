@@ -214,11 +214,11 @@ class GPUMonitor:
 
 	def ejecutar_pynvml(self, info_type):
 		try:
-			self.self.pynvml.nvmlInit()
-			handle = self.self.pynvml.nvmlDeviceGetHandleByIndex(0)
+			self.pynvml.nvmlInit()
+			handle = self.pynvml.nvmlDeviceGetHandleByIndex(0)
 		except Exception as e:
-			log.error(_("Error iniciando pynvml: {error}").format(error=e))
-			return "Error al inicializar pynvml"
+			log.error(_("Error al inicializar pynvml: {error}").format(error=e))
+			return _("Error al inicializar pynvml")
 		try:
 			if info_type == "nombre":
 				gpu_name = self.pynvml.nvmlDeviceGetName(handle)

@@ -289,7 +289,7 @@ msgstr "P15 - Minimum performance / maximum power saving"
 #: globalPlugins/NVIDIAMonitor/gpu_util.py:75
 #, python-brace-format
 msgid "Error al obtener información: {error}"
-msgstr "Error obtaining information: {error}"
+msgstr "Failed to get info: {error}"
 
 #: globalPlugins/NVIDIAMonitor/gpu_util.py:79
 msgid "Error al obtener información de la GPU"
@@ -413,8 +413,8 @@ msgstr "Error executing command with pynvml: {error}"
 
 #: globalPlugins/NVIDIAMonitor/gpu_util.py:209
 #, python-brace-format
-msgid "Error iniciando pynvml: {error}"
-msgstr "Error initializing pynvml: {error}"
+msgid "Error al inicializar pynvml: {error}"
+msgstr "Failed to initialize pynvml: {error}"
 
 #: globalPlugins/NVIDIAMonitor/gpu_util.py:215
 #, python-brace-format
