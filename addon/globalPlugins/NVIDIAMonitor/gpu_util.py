@@ -207,7 +207,7 @@ class GPUMonitor:
 				error_msg = _("Error al ejecutar comando con pynvml: {error}").format(error=e)
 				log.error(error_msg)
 				self.escribir_log(error_msg)
-				cb("Error al obtener información de la GPU")
+				cb(_("Error al obtener información de la GPU"))
 
 
 	def ejecutar_pynvml(self, info_type):

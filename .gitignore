@@ -3,8 +3,6 @@ script/build
 script/dist
 script/*.spec
 addon/doc/*.css
-addon/doc/es/
-addon/doc/en/
 *_docHandler.py
 *.html
 manifest.ini
