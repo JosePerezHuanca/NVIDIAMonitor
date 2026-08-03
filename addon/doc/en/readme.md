@@ -39,7 +39,6 @@ All the following shortcuts can be customized in the input gestures/NVDIAMonitor
 
 - Compatibility with NVDA 2026.1.
 - Starting with this version, the add-on makes calls directly to the pynvml library instead of using an external tool, when running on the latest version of NVDA.
-- English translation.
 
 ### Version 1.0
 
