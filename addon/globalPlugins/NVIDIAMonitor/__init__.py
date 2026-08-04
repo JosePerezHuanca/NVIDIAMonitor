@@ -45,9 +45,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_gpu_name(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("nombre",ui.message)
+				self.execute_command("name",ui.message)
 			else:
-				self.execute_command("nombre",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("name",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -67,9 +67,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_driver_version(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("version_driver",ui.message)
+				self.execute_command("driver_version",ui.message)
 			else:
-				self.execute_command("version_driver",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("driver_version",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -78,9 +78,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_bios_version(self, gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("version_bios",ui.message)
+				self.execute_command("bios_version",ui.message)
 			else:
-				self.execute_command("version_bios",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("bios_version",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -89,9 +89,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_gpu_load(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("carga",ui.message)
+				self.execute_command("load",ui.message)
 			else:
-				self.execute_command("carga",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("load",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -100,9 +100,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_memory_load(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("carga_memoria",ui.message)
+				self.execute_command("memory_load",ui.message)
 			else:
-				self.execute_command("carga_memoria",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("memory_load",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -111,9 +111,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_free_memory(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("memoria_libre",ui.message)
+				self.execute_command("memory_free",ui.message)
 			else:
-				self.execute_command("memoria_libre",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("memory_free",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -122,9 +122,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_used_memory(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("memoria_usada",ui.message)
+				self.execute_command("memory_used",ui.message)
 			else:
-				self.execute_command("memoria_usada",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("memory_used",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -133,9 +133,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_total_memory(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("memoria_total",ui.message)
+				self.execute_command("memory_total",ui.message)
 			else:
-				self.execute_command("memoria_total",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("memory_total",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -155,9 +155,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_power_usage(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("consumo_energia",ui.message)
+				self.execute_command("power_usage",ui.message)
 			else:
-				self.execute_command("consumo_energia",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("power_usage",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -166,9 +166,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_power_limit(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("consumo_limite",ui.message)
+				self.execute_command("power_limit",ui.message)
 			else:
-				self.execute_command("consumo_limite",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("power_limit",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -177,9 +177,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_cuda_processes(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("procesos_cuda",ui.message)
+				self.execute_command("cuda_processes",ui.message)
 			else:
-				self.execute_command("procesos_cuda",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("cuda_processes",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -188,9 +188,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_process_memory(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("procesos_memoria",ui.message)
+				self.execute_command("process_memory",ui.message)
 			else:
-				self.execute_command("procesos_memoria",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("process_memory",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -199,9 +199,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_fan_speed(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("velocidad_ventilador",ui.message)
+				self.execute_command("fan_speed",ui.message)
 			else:
-				self.execute_command("velocidad_ventilador",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("fan_speed",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -210,9 +210,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_gpu_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_reloj",ui.message)
+				self.execute_command("clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_reloj",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -221,9 +221,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_max_gpu_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_max_reloj",ui.message)
+				self.execute_command("max_clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_max_reloj",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("max_clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -232,9 +232,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_sm_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_reloj_sm",ui.message)
+				self.execute_command("sm_clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_reloj_sm",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("sm_clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -243,9 +243,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_max_sm_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_max_reloj_sm",ui.message)
+				self.execute_command("max_sm_clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_max_reloj_sm",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("max_sm_clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -254,9 +254,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_memory_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_reloj_memoria",ui.message)
+				self.execute_command("memory_clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_reloj_memoria",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("memory_clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -265,9 +265,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_max_memory_clock(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("frecuencia_max_reloj_memoria",ui.message)
+				self.execute_command("max_memory_clock_frequency",ui.message)
 			else:
-				self.execute_command("frecuencia_max_reloj_memoria",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("max_memory_clock_frequency",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
@@ -298,9 +298,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_power_state(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("estado_energia",ui.message)
+				self.execute_command("power_state",ui.message)
 			else:
-				self.execute_command("estado_energia",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("power_state",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 
