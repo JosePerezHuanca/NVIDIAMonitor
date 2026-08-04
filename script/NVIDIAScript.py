@@ -33,7 +33,7 @@ def get_gpu_info(info_type,handle):
         memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
         return str(memory_info.total)
 
-    elif info_type == "temperatura":
+    elif info_type == "temperature":
         temperature = pynvml.nvmlDeviceGetTemperature(
             handle, pynvml.NVML_TEMPERATURE_GPU
         )

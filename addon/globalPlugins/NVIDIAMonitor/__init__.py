@@ -144,9 +144,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_temperature(self,gesture):
 		if winVersion.getWinVer().processorArchitecture=="AMD64":
 			if getLastScriptRepeatCount() ==0:
-				self.execute_command("temperatura",ui.message)
+				self.execute_command("temperature",ui.message)
 			else:
-				self.execute_command("temperatura",lambda result: api.copyToClip(result,notify=True))
+				self.execute_command("temperature",lambda result: api.copyToClip(result,notify=True))
 		else:
 			ui.message(_("Error: la arquitectura de tu procesador no es compatible"))
 

@@ -100,7 +100,7 @@ class GPUMonitor:
 			return self._format_memory(int(result), "utilizada")
 		elif command=="memory_total":
 			return self._format_memory(int(result), "total")
-		elif command=="temperatura":
+		elif command=="temperature":
 			return _("Temperatura: {res} °C").format(res=result)
 		elif command=="power_usage":
 			return _("Consumo: {res} W").format(res=result)
@@ -243,7 +243,7 @@ class GPUMonitor:
 			elif info_type == "memory_total":
 				memory_info = self.pynvml.nvmlDeviceGetMemoryInfo(handle)
 				return self._format_memory(memory_info.total, "total")
-			elif info_type == "temperatura":
+			elif info_type == "temperature":
 				temperature = self.pynvml.nvmlDeviceGetTemperature(
 					handle, self.pynvml.NVML_TEMPERATURE_GPU
 				)
