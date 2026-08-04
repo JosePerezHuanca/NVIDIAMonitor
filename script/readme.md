@@ -1,50 +1,50 @@
-# Script NVIDIA
+# NVIDIA Script
 
-Este script permite consultar varios parámetros de las tarjetas gráficas NVIDIA. Se utiliza para llamarlo mediante subprocess desde el complemento, ya que la DLL que se necesita (nvml.dll) es de 64 bits, mientras que NVDA es de 32 bits.
+This script allows querying various parameters of NVIDIA graphics cards. It is designed to be called via subprocess from the add-on, since the required DLL (nvml.dll) is 64-bit, while NVDA is 32-bit.
 
-## Requisitos
+## Requirements
 
-- Python 3.11 o superior
+- Python 3.11 or higher
 - pynvml
 - cx_Freeze
 
-## Cómo compilar
+## How to compile
 
-Se recomienda utilizar un entorno virtual:
-- Instalar las dependencias: `pip install -r requirements.txt`
-- Compilar con: `python setup.py build`
-- Luego de compilar copiar el contenido de la carpeta build a addon/globalPlugins/NVIDIAMonitor. Se recomienda renombrar la carpeta que contiene el ejecutable a data
+It is recommended to use a virtual environment:
+- Install dependencies: `pip install -r requirements.txt`
+- Build with: `python setup.py build`
+- After compiling, copy the contents of the build folder to addon/globalPlugins/NVIDIAMonitor. It is recommended to rename the folder containing the executable to `data`
 
-## Cómo utilizar
+## How to use
 
-Al ejecutar el script, se espera que se ingrese un comando como nombre, uuid, version_driver etc. El comando exit cierra el script.
+When running the script, a command such as name, uuid, driver_version, etc., is expected. The `exit` command closes the script.
 
-## Lista de comandos
+## List of commands
 
-Nota: algúnos parámetros de información pueden no ser compatibles o estár soportados dependiendo de la tarjeta gráfica.
+Note: Some information parameters may not be compatible or supported depending on the graphics card.
 
-- `nombre`: Devuelve el nombre de la GPU
-- `uuid`: Devuelve el UUID de la GPU
-- `version_driver`: Devuelve la versión del driver
-- `version_bios`: Devuelve la versión de la BIOS
-- `carga`: Devuelve la carga de la GPU. Ej: 5%
-- `carga_memoria`: Devuelve la carga de la memoria
-- `memoria_libre`: Memoria libre de la GPU. Ej: 3.84 GB
-- `memoria_usada`: Memoria utilizada de la GPU. Ej: 0.00 GB
-- `memoria_total`: Memoria total de la GPU. Ej: 4.00 GB
-- `temperatura`: Temperatura de la GPU. Ej: 35°C
-- `consumo_energia`: Consumo de la GPU. Ej: 17.89 W
-- `consumo_limite`: Límite de energía
-- `velocidad_ventilador`: Velocidad del ventilador en porcentaje.
-- `procesos_cuda`: Devuelve la cantidad de procesos CUDA.
-- `procesos_memoria`: Devuelve la memoria utilizada por los procesos
-- `frecuencia_reloj`: Devuelve la frecuencia del relojGPU. Ej: 1380 MHz
-- `frecuencia_max_reloj`: Devuelve la frecuencia máxima del reloj GPU
-- `frecuencia_reloj_sm`: Devuelve la frecuencia del reloj SM
-- `frecuencia_max_reloj_sm`: Devuelve la frecuencia máxima del reloj SM
-- `frecuencia_reloj_memoria`: Devuelve la frecuencia del reloj memoria
-- `frecuencia_max_reloj_memoria`: Devuelve la frecuencia máxima del reloj memoria
-- `tx_throughput`: Devuelve el TX Throughput
-- `rx_throughput`: Devuelve el RX Throughput
-- `estado_energia`: Devuelve el estado de energía
-- `exit`: Cierra el script
+- `name`: Returns the GPU name
+- `uuid`: Returns the GPU UUID
+- `driver_version`: Returns the driver version
+- `bios_version`: Returns the BIOS version
+- `load`: Returns the GPU load. E.g., 5%
+- `memory_load`: Returns the memory load
+- `memory_free`: Free GPU memory. E.g., 3.84 GB
+- `memory_used`: Used GPU memory. E.g., 1.00 GB
+- `memory_total`: Total GPU memory. E.g., 4.00 GB
+- `temperature`: GPU temperature. E.g., 35°C
+- `power_usage`: GPU power consumption. E.g., 17.89 W
+- `power_limit`: Power limit
+- `fan_speed`: Fan speed as a percentage
+- `cuda_processes`: Returns the number of CUDA processes
+- `process_memory`: Returns the memory used by processes
+- `clock_frequency`: Returns the GPU clock frequency. E.g., 1380 MHz
+- `max_clock_frequency`: Returns the maximum GPU clock frequency
+- `sm_clock_frequency`: Returns the SM clock frequency
+- `max_sm_clock_frequency`: Returns the maximum SM clock frequency
+- `memory_clock_frequency`: Returns the memory clock frequency
+- `max_memory_clock_frequency`: Returns the maximum memory clock frequency
+- `tx_throughput`: Returns the TX Throughput
+- `rx_throughput`: Returns the RX Throughput
+- `power_state`: Returns the power state
+- `exit`: Closes the script
