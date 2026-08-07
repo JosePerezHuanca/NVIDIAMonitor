@@ -202,15 +202,17 @@ class GPUMonitor:
 			thread=threading.Thread(target=command_thread)
 			thread.start()
 		else:
-			try:
-				result=self.execute_pynvml(command)
-				cb(result)
-			except Exception as e:
-				error_msg = _("Error executing command with pynvml: {error}").format(error=e)
-				log.error(error_msg)
-				self.write_log(error_msg)
-				cb(_("Error obtaining GPU information"))
-
+			def pynvml_thread():
+				try:
+					result=self.execute_pynvml(command)
+					cb(result)
+				except Exception as e:
+					error_msg = _("Error executing command with pynvml: {error}").format(error=e)
+					log.error(error_msg)
+					self.write_log(error_msg)
+					cb(_("Error obtaining GPU information"))
+			thread=threading.Thread(target=pynvml_thread)
+			thread.start()
 
 	def execute_pynvml(self, info_type):
 		try:
