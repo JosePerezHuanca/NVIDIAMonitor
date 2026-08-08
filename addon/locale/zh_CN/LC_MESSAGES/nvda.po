@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'NVIDIAMonitor' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'NVIDIAMonitor' '1.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2025-04-16 02:19+0800\n"
+"PO-Revision-Date: 2025-05-19 17:11+0800\n"
+"Last-Translator: Alan <alanzhangmw@outlook.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "NVIDIA Monitor"
+msgstr "NVIDIA 监视器"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Complemento para obtener información sobre las GPU NVIDIA"
+msgstr "用于获取有关 NVIDIA GPU 信息的插件"
+
+#: NVIDIAMonitor/__init__.py:81
+msgid "NVIDIAMonitor"
+msgstr "NVIDIA 监视器"
+
+#: NVIDIAMonitor/__init__.py:82
+msgid "Si se pulsa dos veces, copia esta información al portapapeles."
+msgstr "双击可将此信息复制到剪贴板。"
+
+#: NVIDIAMonitor/__init__.py:116
+#, python-brace-format
+msgid "Anuncia el nombre de la GPU. {descripcion}"
+msgstr "报告 GPU 的名称。 {descripcion}"
+
+#: NVIDIAMonitor/__init__.py:124 NVIDIAMonitor/__init__.py:135
+#: NVIDIAMonitor/__init__.py:146 NVIDIAMonitor/__init__.py:157
+#: NVIDIAMonitor/__init__.py:168 NVIDIAMonitor/__init__.py:179
+#: NVIDIAMonitor/__init__.py:190 NVIDIAMonitor/__init__.py:203
+#: NVIDIAMonitor/__init__.py:216 NVIDIAMonitor/__init__.py:229
+#: NVIDIAMonitor/__init__.py:242 NVIDIAMonitor/__init__.py:253
+#: NVIDIAMonitor/__init__.py:264 NVIDIAMonitor/__init__.py:275
+#: NVIDIAMonitor/__init__.py:286 NVIDIAMonitor/__init__.py:297
+#: NVIDIAMonitor/__init__.py:308 NVIDIAMonitor/__init__.py:319
+#: NVIDIAMonitor/__init__.py:330 NVIDIAMonitor/__init__.py:341
+#: NVIDIAMonitor/__init__.py:352 NVIDIAMonitor/__init__.py:363
+#: NVIDIAMonitor/__init__.py:374 NVIDIAMonitor/__init__.py:385
+msgid "Error: la arquitectura de tu procesador no es compatible"
+msgstr "错误：您的处理器架构不受支持"
+
+#: NVIDIAMonitor/__init__.py:127
+#, python-brace-format
+msgid "Anuncia el UUID de la GPU. {descripcion}"
+msgstr "报告 GPU 的 UUID。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:138
+#, python-brace-format
+msgid "Anuncia la versión del driver. {descripcion}"
+msgstr "报告驱动程序版本。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:149
+#, python-brace-format
+msgid "Anuncia la versión de la BIOS. {descripcion}"
+msgstr "报告 BIOS 版本。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:160
+#, python-brace-format
+msgid "Anuncia la carga de la GPU. {descripcion}"
+msgstr "报告 GPU 负载。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:171
+#, python-brace-format
+msgid "Anuncia la carga de la memoria. {descripcion}"
+msgstr "报告内存负载。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:182
+#, python-brace-format
+msgid "Anuncia la memoria libre. {descripcion}"
+msgstr "报告释放内存。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:195
+#, python-brace-format
+msgid "Anuncia la memoria utilizada. {descripcion}"
+msgstr "报告使用的内存。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:208
+#, python-brace-format
+msgid "Anuncia la memoria total. {descripcion}"
+msgstr "报告总内存。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:221
+#, python-brace-format
+msgid "Anuncia la temperatura. {descripcion}"
+msgstr "报告温度。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:234
+#, python-brace-format
+msgid "Anuncia el consumo de energía. {descripcion}"
+msgstr "报告能源消耗。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:245
+#, python-brace-format
+msgid "Anuncia el límite de energía. {descripcion}"
+msgstr "报告能量限制。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:256
+#, python-brace-format
+msgid "Anuncia la cantidad de procesos cuda. {descripcion}"
+msgstr "报告 cuda 进程的数量。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:267
+#, python-brace-format
+msgid "Anuncia la memoria utilizada por procesos. {descripcion}"
+msgstr "报告进程使用的内存。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:278
+#, python-brace-format
+msgid "Anuncia la velocidad del ventilador. {descripcion}"
+msgstr "报告风扇速度。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:289
+#, python-brace-format
+msgid "Anuncia la frecuencia del reloj GPU. {descripcion}"
+msgstr "报告 GPU 时钟频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:300
+#, python-brace-format
+msgid "Anuncia la frecuencia máxima del reloj GPU. {descripcion}"
+msgstr "报告最大 GPU 时钟频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:311
+#, python-brace-format
+msgid "Anuncia la frecuencia del reloj SM. {descripcion}"
+msgstr "报告 SM 时钟频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:322
+#, python-brace-format
+msgid "Anuncia la frecuencia máxima del reloj SM. {descripcion}"
+msgstr "报告 SM 时钟的最大频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:333
+#, python-brace-format
+msgid "Anuncia la frecuencia del reloj memoria. {descripcion}"
+msgstr "报告内存时钟频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:344
+#, python-brace-format
+msgid "Anuncia la frecuencia máxima del reloj memoria. {descripcion}"
+msgstr "报告最大内存时钟频率。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:355
+#, python-brace-format
+msgid "Anuncia el TX Throughput. {descripcion}"
+msgstr "报告 TX 吞吐量。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:366
+#, python-brace-format
+msgid "Anuncia el RX Throughput. {descripcion}"
+msgstr "报告 RX 吞吐量。{descripcion}"
+
+#: NVIDIAMonitor/__init__.py:377
+#, python-brace-format
+msgid "Anuncia el estado de energía. {descripcion}"
+msgstr "报告能源状态。{descripcion}"
+
+#~ msgid "Ocurrió un error al obtener información sobre la GPU"
+#~ msgstr "Произошла ошибка при получении информации о графическом процессоре."
