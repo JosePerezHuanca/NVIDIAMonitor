@@ -1,512 +1,560 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: NVIDIA Monitor\n"
-"POT-Creation-Date: 2026-07-28 20:31-0300\n"
-"PO-Revision-Date: 2026-07-28 20:32-0300\n"
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-10-06 17:49+0000\n"
+"PO-Revision-Date: 2026-10-07 01:18\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Language: es\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.9\n"
-"X-Poedit-Basepath: ../../..\n"
-"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: es-ES\n"
+"X-Crowdin-File: NVIDIAMonitor.pot\n"
+"X-Crowdin-File-ID: 671\n"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:33
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:33
 msgid "NVIDIAMonitor"
 msgstr "NVIDIAMonitor"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:34
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:34
 msgid "If pressed twice, copies this information to the clipboard."
 msgstr "Si se pulsa dos veces, copia esta información al portapapeles."
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:44
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:44
 #, python-brace-format
 msgid "Announces the GPU name. {desc}"
 msgstr "Anuncia el nombre de la GPU. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:52
-#: globalPlugins/NVIDIAMonitor/__init__.py:63
-#: globalPlugins/NVIDIAMonitor/__init__.py:74
-#: globalPlugins/NVIDIAMonitor/__init__.py:85
-#: globalPlugins/NVIDIAMonitor/__init__.py:96
-#: globalPlugins/NVIDIAMonitor/__init__.py:107
-#: globalPlugins/NVIDIAMonitor/__init__.py:118
-#: globalPlugins/NVIDIAMonitor/__init__.py:131
-#: globalPlugins/NVIDIAMonitor/__init__.py:144
-#: globalPlugins/NVIDIAMonitor/__init__.py:157
-#: globalPlugins/NVIDIAMonitor/__init__.py:170
-#: globalPlugins/NVIDIAMonitor/__init__.py:181
-#: globalPlugins/NVIDIAMonitor/__init__.py:192
-#: globalPlugins/NVIDIAMonitor/__init__.py:203
-#: globalPlugins/NVIDIAMonitor/__init__.py:214
-#: globalPlugins/NVIDIAMonitor/__init__.py:225
-#: globalPlugins/NVIDIAMonitor/__init__.py:236
-#: globalPlugins/NVIDIAMonitor/__init__.py:247
-#: globalPlugins/NVIDIAMonitor/__init__.py:258
-#: globalPlugins/NVIDIAMonitor/__init__.py:269
-#: globalPlugins/NVIDIAMonitor/__init__.py:280
-#: globalPlugins/NVIDIAMonitor/__init__.py:291
-#: globalPlugins/NVIDIAMonitor/__init__.py:302
-#: globalPlugins/NVIDIAMonitor/__init__.py:313
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:52
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:63
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:74
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:85
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:96
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:107
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:118
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:129
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:140
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:151
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:162
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:173
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:184
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:195
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:206
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:217
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:228
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:239
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:250
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:261
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:272
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:283
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:294
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:305
 msgid "Error: your processor architecture is not compatible"
 msgstr "Error: la arquitectura de tu procesador no es compatible"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:55
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:55
 #, python-brace-format
 msgid "Announces the GPU UUID. {desc}"
 msgstr "Anuncia el UUID de la GPU. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:66
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:66
 #, python-brace-format
 msgid "Announces the driver version. {desc}"
 msgstr "Anuncia la versión del driver. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:77
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:77
 #, python-brace-format
 msgid "Announces the BIOS version. {desc}"
 msgstr "Anuncia la versión de la BIOS. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:88
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:88
 #, python-brace-format
 msgid "Announces the GPU load. {desc}"
 msgstr "Anuncia la carga de la GPU. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:99
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:99
 #, python-brace-format
 msgid "Announces the memory load. {desc}"
 msgstr "Anuncia la carga de la memoria. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:110
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:110
 #, python-brace-format
 msgid "Announces the free memory. {desc}"
 msgstr "Anuncia la memoria libre. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:123
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:121
 #, python-brace-format
 msgid "Announces the used memory. {desc}"
 msgstr "Anuncia la memoria utilizada. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:136
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:132
 #, python-brace-format
 msgid "Announces the total memory. {desc}"
 msgstr "Anuncia la memoria total. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:149
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:143
 #, python-brace-format
 msgid "Announces the temperature. {desc}"
 msgstr "Anuncia la temperatura. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:162
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:154
 #, python-brace-format
 msgid "Announces the power consumption. {desc}"
 msgstr "Anuncia el consumo de energía. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:173
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:165
 #, python-brace-format
 msgid "Announces the power limit. {desc}"
 msgstr "Anuncia el límite de energía. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:184
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:176
 #, python-brace-format
 msgid "Announces the number of CUDA processes. {desc}"
 msgstr "Anuncia la cantidad de procesos cuda. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:195
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:187
 #, python-brace-format
 msgid "Announces the memory used by processes. {desc}"
 msgstr "Anuncia la memoria utilizada por procesos. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:206
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:198
 #, python-brace-format
 msgid "Announces the fan speed. {desc}"
 msgstr "Anuncia la velocidad del ventilador. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:217
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:209
 #, python-brace-format
 msgid "Announces the GPU clock frequency. {desc}"
 msgstr "Anuncia la frecuencia del reloj GPU. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:228
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:220
 #, python-brace-format
 msgid "Announces the maximum GPU clock frequency. {desc}"
 msgstr "Anuncia la frecuencia máxima del reloj GPU. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:239
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:231
 #, python-brace-format
 msgid "Announces the SM clock frequency. {desc}"
 msgstr "Anuncia la frecuencia del reloj SM. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:250
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:242
 #, python-brace-format
 msgid "Announces the maximum SM clock frequency. {desc}"
 msgstr "Anuncia la frecuencia máxima del reloj SM. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:261
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:253
 #, python-brace-format
 msgid "Announces the memory clock frequency. {desc}"
 msgstr "Anuncia la frecuencia del reloj memoria. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:272
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:264
 #, python-brace-format
 msgid "Announces the maximum memory clock frequency. {desc}"
 msgstr "Anuncia la frecuencia máxima del reloj memoria. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:283
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:275
 #, python-brace-format
 msgid "Announces the TX throughput. {desc}"
 msgstr "Anuncia el TX Throughput. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:294
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:286
 #, python-brace-format
 msgid "Announces the RX throughput. {desc}"
 msgstr "Anuncia el RX Throughput. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/__init__.py:305
+#. For translators
+#: addon\globalPlugins\NVIDIAMonitor\__init__.py:297
 #, python-brace-format
 msgid "Announces the power state. {desc}"
 msgstr "Anuncia el estado de energía. {desc}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:25
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:29
 msgid "NVIDIAMonitor: NVDA 64-bit, using pynvml"
 msgstr "NVIDIAMonitor: NVDA 64 bits, utilizando pynvml"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:28
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:33
 msgid "NVIDIAMonitor: NVDA version older than 2026.1, using external script"
 msgstr "NVIDIAMonitor: NVDA versión menor a 2026.1, utilizando script externo"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:32
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:37
 msgid "Free memory"
 msgstr "Memoria libre"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:33
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:38
 msgid "Used memory"
 msgstr "Memoria utilizada"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:34
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:39
 msgid "Total memory"
 msgstr "Memoria total"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:35
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:40
 msgid "Memory used by processes"
 msgstr "Memoria utilizada por procesos"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:39
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:44
 #, python-brace-format
-msgid "{label}: {bytes}B"
-msgstr "{label}: {bytes}B"
+msgid "{label}: {bytes} B"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:41
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:46
 #, python-brace-format
-msgid "{label}: {bytes:.2f}KB"
-msgstr "{label}: {bytes:.2f}KB"
+msgid "{label}: {bytes:.2f} KB"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:43
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:48
 #, python-brace-format
-msgid "{label}: {bytes:.2f}MB"
-msgstr "{label}: {bytes:.2f}MB"
+msgid "{label}: {bytes:.2f} MB"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:45
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:50
 #, python-brace-format
-msgid "{label}: {bytes:.2f}GB"
-msgstr "{label}: {bytes:.2f}GB"
+msgid "{label}: {bytes:.2f} GB"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:49
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:54
 #, python-brace-format
-msgid "{direction} Throughput: {bytes:.2f}KB/s"
-msgstr "{direction} Throughput: {bytes:.2f}KB/s"
+msgid "{direction} Throughput: {bytes:.2f} KB/s"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:51
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:56
 #, python-brace-format
-msgid "{direction} Throughput: {bytes:.2f}MB/s"
-msgstr "{direction} Throughput: {bytes:.2f}MB/s"
+msgid "{direction} Throughput: {bytes:.2f} MB/s"
+msgstr ""
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:55
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:60
 msgid "P0 - Maximum performance"
 msgstr "P0 - Máximo rendimiento"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:56
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:61
 msgid "P1 - Very high performance"
 msgstr "P1 - Rendimiento muy alto"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:57
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:62
 msgid "P2 - High performance"
 msgstr "P2 - Rendimiento alto"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:58
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:63
 msgid "P3 - Moderate-high performance"
 msgstr "P3 - Rendimiento moderado-alto"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:59
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:64
 msgid "P4 - Moderate performance"
 msgstr "P4 - Rendimiento moderado"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:60
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:65
 msgid "P5 - Low performance"
 msgstr "P5 - Bajo rendimiento"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:61
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:66
 msgid "P6 - Power saving mode"
 msgstr "P6 - Modo ahorro de energía"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:62
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:67
 msgid "P7 - Power saving (intermediate)"
 msgstr "P7 - Modo ahorro (intermedio)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:63
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:68
 msgid "P8 - Idle / very low performance"
 msgstr "P8 - Estado de inactividad / muy bajo rendimiento"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:64
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:69
 msgid "P9 - (Undocumented)"
 msgstr "P9 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:65
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:70
 msgid "P10 - (Undocumented)"
 msgstr "P10 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:66
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:71
 msgid "P11 - (Undocumented)"
 msgstr "P11 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:67
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:72
 msgid "P12 - (Undocumented)"
 msgstr "P12 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:68
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:73
 msgid "P13 - (Undocumented)"
 msgstr "P13 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:69
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:74
 msgid "P14 - (Undocumented)"
 msgstr "P14 - (No documentado)"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:70
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:75
 msgid "P15 - Minimum performance / maximum power saving"
 msgstr "P15 - Mínimo rendimiento / máximo ahorro"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:75
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:82
 #, python-brace-format
 msgid "Failed to get info: {error}"
 msgstr "Error al obtener información: {error}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:79
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:86
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:213
 msgid "Error obtaining GPU information"
 msgstr "Error al obtener información de la GPU"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:81
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:88
 #, python-brace-format
 msgid "Name: {res}"
 msgstr "Nombre: {res}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:83
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:90
 #, python-brace-format
 msgid "UUID: {res}"
 msgstr "UUID: {res}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:85
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:92
 #, python-brace-format
 msgid "Driver version: {res}"
 msgstr "Versión del driver: {res}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:87
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:94
 #, python-brace-format
 msgid "GPU load: {res}%"
 msgstr "Carga de la GPU: {res}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:89
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:96
 #, python-brace-format
 msgid "Memory load: {res}%"
 msgstr "Carga de la memoria: {res}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:97
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:104
 #, python-brace-format
 msgid "Temperature: {res} °C"
 msgstr "Temperatura: {res} °C"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:99
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:106
 #, python-brace-format
 msgid "Power consumption: {res} W"
 msgstr "Consumo: {res} W"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:101
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:108
 #, python-brace-format
 msgid "Power limit: {res} W"
 msgstr "Límite: {res} W"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:103
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:110
 #, python-brace-format
 msgid "Fan speed: {res}%"
 msgstr "Velocidad del ventilador: {res}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:105
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:112
 #, python-brace-format
 msgid "CUDA processes: {res}"
 msgstr "Procesos cuda: {res}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:109
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:116
 #, python-brace-format
 msgid "GPU clock frequency: {res} MHz"
 msgstr "Frecuencia reloj GPU: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:111
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:118
 #, python-brace-format
 msgid "SM clock frequency: {res} MHz"
 msgstr "Frecuencia reloj SM: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:113
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:120
 #, python-brace-format
 msgid "Memory clock frequency: {res} MHz"
 msgstr "Frecuencia reloj memoria: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:115
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:122
 #, python-brace-format
 msgid "Maximum GPU clock frequency: {res} MHz"
 msgstr "Frecuencia máxima reloj GPU: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:117
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:124
 #, python-brace-format
 msgid "Maximum SM clock frequency: {res} MHz"
 msgstr "Frecuencia máxima reloj SM: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:119
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:126
 #, python-brace-format
 msgid "Maximum memory clock frequency: {res} MHz"
 msgstr "Frecuencia máxima reloj memoria: {res} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:125
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:132
 #, python-brace-format
 msgid "BIOS version: {res}"
 msgstr "Versión de la BIOS: {res}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:128
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:292
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:135
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:301
 #, python-brace-format
 msgid "Power state: {desc}"
 msgstr "Estado de energía: {desc}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:130
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:294
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:137
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:303
 msgid "Invalid information type"
 msgstr "Tipo de información no válido"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:151
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:160
 #, python-brace-format
 msgid "Error: File not found at the specified path: {path}"
 msgstr "Error: El archivo no se encuentra en la ruta especificada: {path}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:158
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:167
 #, python-brace-format
 msgid "Error starting process: {code} {cmd}"
 msgstr "Error al iniciar el proceso: {code} {cmd}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:187
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:198
 #, python-brace-format
 msgid "Error writing to subprocess: {error}"
 msgstr "Error al escribir en el subprocess: {error}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:198
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:210
 #, python-brace-format
 msgid "Error executing command with pynvml: {error}"
 msgstr "Error al ejecutar comando con pynvml: {error}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:209
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:222
 #, python-brace-format
 msgid "Failed to initialize pynvml: {error}"
 msgstr "Error al inicializar pynvml: {error}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:215
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:223
+msgid "Failed to initialize pynvml"
+msgstr ""
+
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:228
 #, python-brace-format
 msgid "Name: {name}"
 msgstr "Nombre: {name}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:217
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:230
 #, python-brace-format
 msgid "UUID: {uuid}"
 msgstr "UUID: {uuid}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:219
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:232
 #, python-brace-format
 msgid "Driver version: {ver}"
 msgstr "Versión del driver: {ver}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:222
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:235
 #, python-brace-format
 msgid "GPU load: {load}%"
 msgstr "Carga de la GPU: {load}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:225
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:238
 #, python-brace-format
 msgid "Memory load: {load}%"
 msgstr "Carga de la memoria: {load}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:239
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:252
 #, python-brace-format
 msgid "Temperature: {temp} °C"
 msgstr "Temperatura: {temp} °C"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:242
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:255
 #, python-brace-format
 msgid "Power consumption: {power:.2f} W"
 msgstr "Consumo: {power:.2f} W"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:245
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:258
 #, python-brace-format
 msgid "Power limit: {limit:.2f} W"
 msgstr "Límite: {limit:.2f} W"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:248
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:261
 #, python-brace-format
 msgid "Fan speed: {speed}%"
 msgstr "Velocidad del ventilador: {speed}%"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:251
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:264
 #, python-brace-format
 msgid "CUDA processes: {count}"
 msgstr "Procesos cuda: {count}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:261
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:274
 #, python-brace-format
 msgid "GPU clock frequency: {clock} MHz"
 msgstr "Frecuencia reloj GPU: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:264
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:277
 #, python-brace-format
 msgid "SM clock frequency: {clock} MHz"
 msgstr "Frecuencia reloj SM: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:267
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:280
 #, python-brace-format
 msgid "Memory clock frequency: {clock} MHz"
 msgstr "Frecuencia reloj memoria: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:270
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:283
 #, python-brace-format
 msgid "Maximum GPU clock frequency: {clock} MHz"
 msgstr "Frecuencia máxima reloj GPU: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:273
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:286
 #, python-brace-format
 msgid "Maximum SM clock frequency: {clock} MHz"
 msgstr "Frecuencia máxima reloj SM: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:276
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:289
 #, python-brace-format
 msgid "Maximum memory clock frequency: {clock} MHz"
 msgstr "Frecuencia máxima reloj memoria: {clock} MHz"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:285
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:298
 #, python-brace-format
 msgid "BIOS version: {ver}"
 msgstr "Versión de la BIOS: {ver}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:299
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:308
 #, python-brace-format
 msgid "Error closing pynvml: {error}"
 msgstr "Error al cerrar pynvml: {error}"
 
-#: globalPlugins/NVIDIAMonitor/gpu_util.py:322
+#: addon\globalPlugins\NVIDIAMonitor\gpu_util.py:331
 #, python-brace-format
 msgid "Error attempting to terminate process: {error}"
 msgstr "Error al intentar terminar el proceso: {error}"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "NVIDIA Monitor"
+msgstr ""
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Add-on to get information about NVIDIA GPUs"
+msgstr ""
+
